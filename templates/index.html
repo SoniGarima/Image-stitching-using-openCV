@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='style.css') }}" />
+</head>
+
+<body>
+
+
+    <div class="main">
+        <div class="title">
+            <h3>Siamese Network</h3>
+            <!-- <p>
+      <small>A web app demo</small>
+    </p> -->
+        </div>
+        <div class="flex-container">
+            <div class="panel">
+                <input id="file-upload" class="hidden" type="file" accept="image/x-png,image/gif,image/jpeg" />
+                <label for="file-upload" id="file-drag" class="upload-box">
+      <div id="upload-caption">Drop image here or click to select</div>
+      <img id="image-preview" class="hidden" />
+    </label>
+            </div>
+            <div class="panel2">
+                <input id="file-upload2" class="hidden" type="file" accept="image/x-png,image/gif,image/jpeg" />
+                <label for="file-upload2" id="file-drag2" class="upload-box">
+      <div id="upload-caption2">Drop image here or click to select</div>
+      <img id="image-preview2" class="hidden" />
+    </label>
+            </div>
+        </div>
+        <div style="margin-bottom: 2rem;">
+            <input type="button" value="Submit" class="button" onclick="submitImage();" />
+            <input type="button" value="Clear" class="button" onclick="clearImage();" />
+        </div>
+
+        <div id="image-box">
+            <img id="image-display" />
+            <div id="pred-result" class="hidden"></div>
+            <svg id="loader" class="hidden" viewBox="0 0 32 32" width="32" height="32">
+      <circle id="spinner" cx="16" cy="16" r="14" fill="none"></circle>
+    </svg>
+        </div>
+        <div id="image-box2">
+            <img id="image-display2" />
+            <div id="pred-result2" class="hidden"></div>
+            <svg id="loader2" class="hidden" viewBox="0 0 32 32" width="32" height="32">
+      <circle id="spinner2" cx="16" cy="16" r="14" fill="none"></circle>
+    </svg>
+        </div>
+    </div>
+
+</body>
+
+<footer>
+    <script src="{{ url_for('static',filename='main2.js') }}"></script>
+</footer>
+
+</html>
