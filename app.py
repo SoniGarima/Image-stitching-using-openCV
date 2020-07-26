@@ -17,10 +17,10 @@ from util import base64_to_pil
 # Declare a flask app
 app = Flask(__name__)
 
-def  model_predict():
+def  model_predict(img1,img2):
     #.......open cv here
-    img1 = cv2.imread("images/s1.png")
-    img2 = cv2.imread("images/s2.png")
+    # img1 = cv2.imread("images/s1.png")
+    # img2 = cv2.imread("images/s2.png")
     images = [img1,img2]
     stitcher = cv2.Stitcher_create() 
     (status, stitched) = stitcher.stitch(images)
@@ -52,7 +52,7 @@ def  model_predict():
     (x, y, w, h) = cv2.boundingRect(c)
     stitched = stitched[y:y + h, x:x + w]
     cv2.imwrite("output.png", stitched)
-    return None
+    return stitched
 
 
 @app.route('/', methods=['GET'])
@@ -64,8 +64,13 @@ def index():
 @app.route('/predict', methods=['GET', 'POST'])
 def predict():
     if request.method == 'POST':
-        base64_to_pil(request.json)
-        model_predict()
+        print('hehe',request.json)
+        img1,img2=base64_to_pil(request.json)
+        img3=model_predict(img1,img2)
+        if(img3):
+            print('success',img3)
+        else:
+            print('failure')
         
 
 

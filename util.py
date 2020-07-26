@@ -27,14 +27,14 @@ def base64_to_pil(img_base64):
     pil_image = (base64.b64decode(image_data))
     pil_image2 = (base64.b64decode(image_data2))
     
-    filename = 'images/s1.png'  # I assume you have a way of picking unique filenames
-    with open(filename, 'wb') as f:
-        f.write(pil_image)
+    # filename = 'images/s1.png'  # I assume you have a way of picking unique filenames
+    # with open(filename, 'wb') as f:
+    #     f.write(pil_image)
     
-    filename = 'images/s2.png'  # I assume you have a way of picking unique filenames
-    with open(filename, 'wb') as f:
-        f.write(pil_image2)
-    # return (pil_image,pil_image2)
+    # filename = 'images/s2.png'  # I assume you have a way of picking unique filenames
+    # with open(filename, 'wb') as f:
+    #     f.write(pil_image2)
+    return (pil_image,pil_image2)
 
 
 def np_to_base64(img_np):
