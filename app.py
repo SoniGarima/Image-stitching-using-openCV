@@ -13,7 +13,7 @@ from werkzeug.utils import secure_filename
 from gevent.pywsgi import WSGIServer
 
 from util import base64_to_pil
-
+from util import np_to_base64
 # Declare a flask app
 app = Flask(__name__)
 
@@ -64,6 +64,7 @@ def  model_predict(img1,img2):
     return stitched
 
 
+
 @app.route('/', methods=['GET'])
 def index():
     # Main page
@@ -73,14 +74,14 @@ def index():
 @app.route('/predict', methods=['GET', 'POST'])
 def predict():
     if request.method == 'POST':
-        # print('hehe',request.json)
         img1,img2=base64_to_pil(request.json)
         print(type(img1))
-        
         img3=model_predict(img1,img2)
-        
+        img3=np_to_base64(img3)
+        return jsonify(img3)
+    return None
 
 
 if __name__ == '__main__':
-    http_server = WSGIServer(('0.0.0.0', 5000), app)
+    http_server = WSGIServer(('0.0.0.0', 4000), app)
     http_server.serve_forever()
