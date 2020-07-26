@@ -27,9 +27,13 @@ def  model_predict(img1,img2):
     img1=(np.array(img1))
     img2=(np.array(img2))
     
-    img1 = cv2.cvtColor(img1,cv2.COLOR_GRAY2BGR)
-    img2 = cv2.cvtColor(img2,cv2.COLOR_GRAY2BGR)
+    if(len(img1.shape)==2):
+        img1 = cv2.cvtColor(img1,cv2.COLOR_GRAY2BGR)
     
+    if(len(img2.shape)==2):
+        img2 = cv2.cvtColor(img2,cv2.COLOR_GRAY2BGR)
+    
+        
     images = [img1,img2]
     stitcher = cv2.Stitcher_create() 
     (status, stitched) = stitcher.stitch(images)
