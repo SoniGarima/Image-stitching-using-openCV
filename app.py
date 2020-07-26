@@ -79,7 +79,6 @@ def index():
 def predict():
     if request.method == 'POST':
         img1,img2=base64_to_pil(request.json)
-        print(type(img1))
         img3=model_predict(img1,img2)
         img3=np_to_base64(img3)
         #return jsonify({'image_url': '/output.png'})

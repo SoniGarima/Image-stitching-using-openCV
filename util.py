@@ -13,8 +13,6 @@ def base64_to_pil(img_base64):
     """
     Convert base64 image data to PIL image
     """
-    print(img_base64)
-    print(type(img_base64))
     img_base641=img_base64['avatar']
     img_base642=img_base64['avatar2']
     img_base641=str(img_base641)
