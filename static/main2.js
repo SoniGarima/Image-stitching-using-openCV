@@ -201,7 +201,10 @@ function predictImage(image, image2) {
                 console.log('g')
             clearImage();
             console.log("geg");
-            document.getElementById("output").innerHTML = "output Image ka link jo kaam nahi kar raha thenks";
+            // document.getElementById("output").innerHTML = `<img src=${resp.image_url}/>`;
+            var image = new Image();
+            image.src = resp;
+            document.body.appendChild(image);
         })
         .catch(err => {
             console.log("An error occured", err.message);
