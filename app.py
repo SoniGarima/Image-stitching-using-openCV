@@ -17,13 +17,19 @@ from util import base64_to_pil
 # Declare a flask app
 app = Flask(__name__)
 
+from IPython.display import Image 
+
 def  model_predict(img1,img2):
     #.......open cv here
     # img1 = cv2.imread("images/s1.png")
     # img2 = cv2.imread("images/s2.png")
-    img1=np.array(img1)
-    img2=np.array(img2)
-    print(img1)
+    
+    img1=(np.array(img1))
+    img2=(np.array(img2))
+    
+    img1 = cv2.cvtColor(img1,cv2.COLOR_GRAY2BGR)
+    img2 = cv2.cvtColor(img2,cv2.COLOR_GRAY2BGR)
+    
     images = [img1,img2]
     stitcher = cv2.Stitcher_create() 
     (status, stitched) = stitcher.stitch(images)
@@ -72,10 +78,6 @@ def predict():
         print(type(img1))
         
         img3=model_predict(img1,img2)
-        if(img3):
-            print('success',img3)
-        else:
-            print('failure')
         
 
 
