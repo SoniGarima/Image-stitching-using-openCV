@@ -60,7 +60,7 @@ def  model_predict(img1,img2):
     c = max(cnts, key=cv2.contourArea)
     (x, y, w, h) = cv2.boundingRect(c)
     stitched = stitched[y:y + h, x:x + w]
-    cv2.imwrite("output.png", stitched)
+    # cv2.imwrite("output.png", stitched)
     return stitched
 
 

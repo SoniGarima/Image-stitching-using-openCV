@@ -2,6 +2,7 @@ body {
     font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
     -webkit-font-smoothing: antialiased;
     background-color: #f8f8f8;
+    align-items: center;
 }
 
 
@@ -107,14 +108,16 @@ body {
     max-height: 20rem;
 }
 
-#image-box {
+#image-box,
+#image-box2 {
     position: relative;
     width: auto;
     float: left;
     margin-bottom: 2rem;
 }
 
-#image-display {
+#image-display,
+#image-display2 {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     max-height: 20rem;
 }
