@@ -204,7 +204,7 @@ function predictImage(image, image2) {
             // document.getElementById("output").innerHTML = `<img src=${resp.image_url}/>`;
             var image = new Image();
             image.src = resp;
-            document.body.appendChild(image);
+            document.getElementById("output").appendChild(image);
         })
         .catch(err => {
             console.log("An error occured", err.message);
