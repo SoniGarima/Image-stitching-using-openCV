@@ -80,6 +80,7 @@ def predict():
     if request.method == 'POST':
         img1,img2=base64_to_pil(request.json)
         img3=model_predict(img1,img2)
+        img3=cv2.resize(img3, (400,300),interpolation=cv2.INTER_AREA)
         img3=np_to_base64(img3)
         #return jsonify({'image_url': '/output.png'})
         return jsonify(img3)
